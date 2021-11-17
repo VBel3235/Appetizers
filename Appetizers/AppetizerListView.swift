@@ -10,13 +10,16 @@ import SwiftUI
 struct AppetizerListView: View {
     var body: some View {
         NavigationView{
-            Text("Appetizer View")
-                .navigationTitle("🍔 Appetizers")
-                        
+            List(MockData.appetizers){ appetizer in
+                AppetizerListCell(appetizer: appetizer)
+            }
+            .navigationTitle("🍔 Appetizers")
         }
         
     }
 }
+
+
 
 struct AppetizerListView_Previews: PreviewProvider {
     static var previews: some View {
