@@ -32,5 +32,41 @@ struct MockData{
                                      calories: 99,
                                      protein: 99,
                                      carbs: 99)
-    static let appetizers = [sampleAppetizer, sampleAppetizer, sampleAppetizer, sampleAppetizer, sampleAppetizer, sampleAppetizer]
+    static let appetizers = [orderItemOne, orderItemTwo, orderItemThree, orderItemFour]
+    
+    static let orderItemOne = Appetizer(id: 0001,
+                                        name: "Big mac",
+                                        description: "This is a description for big mac",
+                                        price: 9.99,
+                                        imageURL: "",
+                                        calories: 99,
+                                        protein: 99,
+                                        carbs: 99)
+    
+    static let orderItemTwo = Appetizer(id: 0002,
+                                        name: "McNuggets",
+                                        description: "This is a description for big mac",
+                                        price: 9.99,
+                                        imageURL: "",
+                                        calories: 99,
+                                        protein: 99,
+                                        carbs: 99)
+    
+    static let orderItemThree = Appetizer(id: 0003,
+                                        name: "Fries",
+                                        description: "This is a description for big mac",
+                                        price: 9.99,
+                                        imageURL: "",
+                                        calories: 99,
+                                        protein: 99,
+                                        carbs: 99)
+    
+    static let orderItemFour = Appetizer(id: 0004,
+                                        name: "Cheeseburger",
+                                        description: "This is a description for big mac",
+                                        price: 9.99,
+                                        imageURL: "",
+                                        calories: 99,
+                                        protein: 99,
+                                        carbs: 99)
 }
