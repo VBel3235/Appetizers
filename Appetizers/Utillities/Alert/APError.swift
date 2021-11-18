@@ -12,4 +12,11 @@ enum APError: Error{
     case invalidResponse
     case invalidData
     case unableToComplete
+    
+  
+}
+
+enum AccountError: Error{
+    case nameIsRequired
+    case invalidEmail
 }

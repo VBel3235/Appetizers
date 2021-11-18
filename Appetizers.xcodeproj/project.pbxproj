@@ -26,6 +26,8 @@
 		F5EC9ED92745B81C00EFF649 /* AppetizerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EC9ED82745B81C00EFF649 /* AppetizerDetailView.swift */; };
 		F5EC9EDC2745B89A00EFF649 /* AddToTheCartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EC9EDB2745B89A00EFF649 /* AddToTheCartButton.swift */; };
 		F5EC9EDE2745D62500EFF649 /* XDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EC9EDD2745D62500EFF649 /* XDismissButton.swift */; };
+		F5EC9EE02745E60B00EFF649 /* AccoountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EC9EDF2745E60B00EFF649 /* AccoountViewModel.swift */; };
+		F5EC9EE22745EAB100EFF649 /* String + EXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EC9EE12745EAB100EFF649 /* String + EXT.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +51,8 @@
 		F5EC9ED82745B81C00EFF649 /* AppetizerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizerDetailView.swift; sourceTree = "<group>"; };
 		F5EC9EDB2745B89A00EFF649 /* AddToTheCartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToTheCartButton.swift; sourceTree = "<group>"; };
 		F5EC9EDD2745D62500EFF649 /* XDismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XDismissButton.swift; sourceTree = "<group>"; };
+		F5EC9EDF2745E60B00EFF649 /* AccoountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccoountViewModel.swift; sourceTree = "<group>"; };
+		F5EC9EE12745EAB100EFF649 /* String + EXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + EXT.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +128,7 @@
 		F58A846C2744F9870062420A /* AccountView */ = {
 			isa = PBXGroup;
 			children = (
+				F5EC9EDF2745E60B00EFF649 /* AccoountViewModel.swift */,
 				F58A8451274490900062420A /* AccountView.swift */,
 			);
 			path = AccountView;
@@ -159,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				F58A84652744E19B0062420A /* Color + EXT.swift */,
+				F5EC9EE12745EAB100EFF649 /* String + EXT.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -308,8 +314,10 @@
 				F58A845C2744A9B70062420A /* APError.swift in Sources */,
 				F58A84582744A49C0062420A /* AppetizerListCell.swift in Sources */,
 				F58A8452274490910062420A /* AccountView.swift in Sources */,
+				F5EC9EE22745EAB100EFF649 /* String + EXT.swift in Sources */,
 				F58A844427448F1C0062420A /* AppetizerTabView.swift in Sources */,
 				F5EC9EDC2745B89A00EFF649 /* AddToTheCartButton.swift in Sources */,
+				F5EC9EE02745E60B00EFF649 /* AccoountViewModel.swift in Sources */,
 				F58A84642744E0080062420A /* LoadingView.swift in Sources */,
 				F58A845A2744A7C00062420A /* NetworkManager.swift in Sources */,
 				F58A844227448F1C0062420A /* AppetizersApp.swift in Sources */,
