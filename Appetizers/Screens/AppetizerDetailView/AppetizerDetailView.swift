@@ -39,8 +39,15 @@ struct AppetizerDetailView: View {
                 order.add(appetizer)
                 isShowingDetailView = false
             } label: {
-                AddToTheCartButton(title: Text("$\(appetizer.price, specifier: "%.2f") - Add To Order"), textColor: .white, backgroundColor: .brandPrimary)
+//                AddToTheCartButton(title: Text("$\(appetizer.price, specifier: "%.2f") - Add To Order"), textColor: .white, backgroundColor: .brandPrimary)
+                Text("$\(appetizer.price, specifier: "%.2f") - Add To Order")
+                
             }
+            .modifier(StandartButtonStyle())
+//            .standartButtonStyle()
+//            .buttonStyle(.bordered)
+//            .tint(.brandPrimary)
+//            .controlSize(.large)
             .padding(.bottom, 30)
             
         }

@@ -26,8 +26,11 @@ struct OrderView: View {
                     Button{
                         
                     } label: {
-                        AddToTheCartButton(title: Text("$\(order.totalPrice, specifier: "%.2f") - Place Order"), textColor: .white, backgroundColor: .brandPrimary)
+//                        AddToTheCartButton(title: Text("$\(order.totalPrice, specifier: "%.2f") - Place Order"), textColor: .white, backgroundColor: .brandPrimary)
+                        Text("$\(order.totalPrice, specifier: "%.2f") - Place Order")
                     }
+                    .modifier(StandartButtonStyle())
+//                    .standartButtonStyle()
                     .padding(.bottom, 25)
                 }
                 if order.items.isEmpty {

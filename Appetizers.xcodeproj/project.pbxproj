@@ -10,6 +10,7 @@
 		F54F52062746453E003E24D4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54F52052746453E003E24D4 /* User.swift */; };
 		F564456D2746E28500CD8441 /* EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F564456C2746E28500CD8441 /* EmptyState.swift */; };
 		F564456F2746E81700CD8441 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = F564456E2746E81700CD8441 /* Order.swift */; };
+		F56445712746F6D900CD8441 /* CustomModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56445702746F6D900CD8441 /* CustomModifiers.swift */; };
 		F58A844227448F1C0062420A /* AppetizersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58A844127448F1C0062420A /* AppetizersApp.swift */; };
 		F58A844427448F1C0062420A /* AppetizerTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58A844327448F1C0062420A /* AppetizerTabView.swift */; };
 		F58A844627448F1E0062420A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F58A844527448F1E0062420A /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 		F54F52052746453E003E24D4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F564456C2746E28500CD8441 /* EmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyState.swift; sourceTree = "<group>"; };
 		F564456E2746E81700CD8441 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		F56445702746F6D900CD8441 /* CustomModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModifiers.swift; sourceTree = "<group>"; };
 		F58A843E27448F1C0062420A /* Appetizers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Appetizers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F58A844127448F1C0062420A /* AppetizersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizersApp.swift; sourceTree = "<group>"; };
 		F58A844327448F1C0062420A /* AppetizerTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizerTabView.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				F58A84772744FA8D0062420A /* Image */,
 				F58A84762744FA840062420A /* Cells */,
 				F58A84752744FA7A0062420A /* UIKit Components */,
+				F56445702746F6D900CD8441 /* CustomModifiers.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				F5EC9ED92745B81C00EFF649 /* AppetizerDetailView.swift in Sources */,
 				F58A8450274490810062420A /* AppetizerListView.swift in Sources */,
 				F58A84602744C1ED0062420A /* Alert.swift in Sources */,
+				F56445712746F6D900CD8441 /* CustomModifiers.swift in Sources */,
 				F58A84542744909E0062420A /* OrderView.swift in Sources */,
 				F58A845E2744BB740062420A /* AppetizersViewModel.swift in Sources */,
 			);
