@@ -15,13 +15,13 @@ struct AccountView: View {
         NavigationView{
             Form{
                 Section(header: Text("Personal info") ) {
-                    TextField("First name", text: $accountViewModel.firstName)
-                    TextField("Last name", text: $accountViewModel.lastName)
-                    TextField("E-mail", text: $accountViewModel.email)
+                    TextField("First name", text: $accountViewModel.user.firstName)
+                    TextField("Last name", text: $accountViewModel.user.lastName)
+                    TextField("E-mail", text: $accountViewModel.user.email)
                         .keyboardType(.emailAddress)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
-                    DatePicker("Birthday", selection: $accountViewModel.birthday, displayedComponents: .date)
+                    DatePicker("Birthday", selection: $accountViewModel.user.birthday, displayedComponents: .date)
                     Button{
                         accountViewModel.saveChanges()
                     } label: {
@@ -30,8 +30,8 @@ struct AccountView: View {
                 }
 
                 Section(header: Text("Requests")){
-                    Toggle("Extra napkins", isOn: $accountViewModel.extraNapkin)
-                    Toggle("Frequent refills", isOn: $accountViewModel.frequentRefills)
+                    Toggle("Extra napkins", isOn: $accountViewModel.user.extraNapkin)
+                    Toggle("Frequent refills", isOn: $accountViewModel.user.frequentRefills)
                    
                 }
                 .toggleStyle(SwitchToggleStyle(tint: .brandPrimary))
@@ -41,6 +41,9 @@ struct AccountView: View {
             
                         
         }
+        .onAppear(perform: {
+            accountViewModel.retreiveUser()
+        })
         .alert(item: $accountViewModel.alertItem) { alert in
             Alert(title: alert.title, message: alert.message, dismissButton: alert.dismissButton)
     }

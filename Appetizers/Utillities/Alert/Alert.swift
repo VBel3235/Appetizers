@@ -27,4 +27,7 @@ struct AccountErrorContext {
     
     static let nameIsRequired = AlertItem(title: Text("Name is required"), message: Text("Please fill in the name"), dismissButton: .default(Text("OK")))
     static let invalidEmail = AlertItem(title: Text("Email is invalid"), message: Text("Please fill in correct Email"), dismissButton: .default(Text("OK")))
+    
+    static let userSaveSuccess = AlertItem(title: Text("Profile saved"), message: Text("Your profile information was successfully saved"), dismissButton: .default(Text("OK")))
+    static let invalidUserData = AlertItem(title: Text("Profile error"), message: Text("There was an error saving / retreiving profile information"), dismissButton: .default(Text("OK")))
 }
