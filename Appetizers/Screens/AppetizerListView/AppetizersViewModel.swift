@@ -13,7 +13,10 @@ final class AppetizerViewModel: ObservableObject {
     @Published var appetizers: [Appetizer] = []
     @Published var alertItem: AlertItem?
     @Published var isLoading: Bool = false
-
+    @Published var isShowingDetailView: Bool = false
+    
+    var selectedAppetizer: Appetizer? {didSet { isShowingDetailView = true }}
+    
     func getAppetizers(){
         isLoading = true
         NetworkManager.shared.getAppetizer { [weak self] result in
