@@ -22,7 +22,10 @@ struct ActivityIndicator: UIViewRepresentable{
             ZStack {
                 Color(.systemBackground)
                     .ignoresSafeArea(.all)
-                ActivityIndicator()
+//                ActivityIndicator()
+                ProgressView()
+                    .progressViewStyle((CircularProgressViewStyle(tint: .brandPrimary)))
+                    .scaleEffect(2)
             }
         }
     }
