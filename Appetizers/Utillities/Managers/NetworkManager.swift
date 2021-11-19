@@ -18,36 +18,55 @@ final class NetworkManager{
     
     private init() {}
     
-    func getAppetizer(completion: @escaping (Result<[Appetizer], APError>) -> Void){
+    func getAppetizer() async throws ->  [Appetizer]{
         guard let url = URL(string: appetizerURL) else {
-            completion(.failure(.invalidURL))
-            return
+            throw APError.invalidURL
         }
-        print(url)
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            if let _ = error {
-                completion(.failure(.unableToComplete))
-                return
-            }
+        let (data, response) = try await URLSession.shared.data(from: url)
+       
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                completion(.failure(.invalidResponse))
-                return
-            }
-            print(response)
-            guard let data = data else {
-                completion(.failure(.invalidData))
-                return
+                throw APError.invalidResponse
             }
             do {
-               let decoder =  JSONDecoder()
+                let decoder =  JSONDecoder()
                 let decodedResponse = try decoder.decode(AppetizerResponse.self, from: data)
-                completion(.success(decodedResponse.request))
+                return decodedResponse.request
             } catch  {
-                completion(.failure(.invalidData))
+                throw APError.invalidData
             }
-        }
-        task.resume()
+       
     }
+    
+//    func getAppetizer(completion: @escaping (Result<[Appetizer], APError>) -> Void){
+//        guard let url = URL(string: appetizerURL) else {
+//            completion(.failure(.invalidURL))
+//            return
+//        }
+//        print(url)
+//        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+//            if let _ = error {
+//                completion(.failure(.unableToComplete))
+//                return
+//            }
+//            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+//                completion(.failure(.invalidResponse))
+//                return
+//            }
+//            print(response)
+//            guard let data = data else {
+//                completion(.failure(.invalidData))
+//                return
+//            }
+//            do {
+//               let decoder =  JSONDecoder()
+//                let decodedResponse = try decoder.decode(AppetizerResponse.self, from: data)
+//                completion(.success(decodedResponse.request))
+//            } catch  {
+//                completion(.failure(.invalidData))
+//            }
+//        }
+//        task.resume()
+//    }
     
     
     func downloadImage(from URLString : String, completion: @escaping (UIImage?) -> Void){

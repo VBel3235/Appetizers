@@ -11,13 +11,28 @@ struct AccountView: View {
   
     @StateObject  var accountViewModel = AccountViewModel()
     
+    @FocusState private var focusedTextfield: FormTextField?
+    
+    enum FormTextField {
+        case firstName, lastName, email
+    }
+    
     var body: some View {
         NavigationView{
             Form{
                 Section(header: Text("Personal info") ) {
                     TextField("First name", text: $accountViewModel.user.firstName)
+                        .focused($focusedTextfield, equals: .firstName)
+                        .onSubmit {focusedTextfield = .lastName}
+                        .submitLabel(.next)
                     TextField("Last name", text: $accountViewModel.user.lastName)
+                        .focused($focusedTextfield, equals: .lastName)
+                        .onSubmit {focusedTextfield = .email}
+                        .submitLabel(.next)
                     TextField("E-mail", text: $accountViewModel.user.email)
+                        .focused($focusedTextfield, equals: .email)
+                        .onSubmit {focusedTextfield = nil}
+                        .submitLabel(.continue)
                         .keyboardType(.emailAddress)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
@@ -38,12 +53,21 @@ struct AccountView: View {
             }
           
                 .navigationTitle("👨🏼‍💼 Account")
-            
+                .toolbar {
+                    ToolbarItemGroup(placement: .keyboard) {
+                        Button("Dismiss") {
+                            focusedTextfield = nil
+                        }
+                    }
+                }
                         
         }
-        .onAppear(perform: {
+//        .onAppear(perform: {
+//            accountViewModel.retreiveUser()
+//        })
+        .task {
             accountViewModel.retreiveUser()
-        })
+        }
         .alert(item: $accountViewModel.alertItem) { alert in
             Alert(title: alert.title, message: alert.message, dismissButton: alert.dismissButton)
     }

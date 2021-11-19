@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-final class AppetizerViewModel: ObservableObject {
+@MainActor final class AppetizerViewModel: ObservableObject {
     
     @Published var appetizers: [Appetizer] = []
     @Published var alertItem: AlertItem?
@@ -19,35 +19,62 @@ final class AppetizerViewModel: ObservableObject {
     
     func getAppetizers(){
         isLoading = true
-        NetworkManager.shared.getAppetizer { [weak self] result in
-            guard let self = self else { return }
-            DispatchQueue.main.async {
-                self.isLoading = false
-                switch result {
-                case .success(let appetizers):
-                    DispatchQueue.main.async {
-                        self.appetizers = appetizers
+        Task {
+            do {
+                appetizers = try await NetworkManager.shared.getAppetizer()
+                isLoading = false
+            } catch  {
+                if let aPError = error as? APError {
+                    switch aPError{
                         
-                    }
-                 
-                case .failure(let error):
-                    switch error {
                     case .invalidURL:
-                        self.alertItem = AlertContext.invalidResponse
+                        alertItem = AlertContext.invalidURL
                     case .invalidResponse:
-                        self.alertItem = AlertContext.invalidResponse
+                        alertItem = AlertContext.invalidResponse
                     case .invalidData:
-                        self.alertItem = AlertContext.invalidURL
+                        alertItem = AlertContext.invalidData
                     case .unableToComplete:
-                        self.alertItem = AlertContext.unableToComplete
+                        alertItem = AlertContext.unableToComplete
                     }
+             
+                } else {
+                    alertItem = AlertContext.invalidResponse
+                  
                 }
-            }
-        
-            
+                isLoading = false
+        }
         }
     }
     
-    
+//    func getAppetizers(){
+//        isLoading = true
+//        NetworkManager.shared.getAppetizer { [weak self] result in
+//            guard let self = self else { return }
+//            DispatchQueue.main.async {
+//                self.isLoading = false
+//                switch result {
+//                case .success(let appetizers):
+//                    DispatchQueue.main.async {
+//                        self.appetizers = appetizers
+//
+//                    }
+//
+//                case .failure(let error):
+//                    switch error {
+//                    case .invalidURL:
+//                        self.alertItem = AlertContext.invalidResponse
+//                    case .invalidResponse:
+//                        self.alertItem = AlertContext.invalidResponse
+//                    case .invalidData:
+//                        self.alertItem = AlertContext.invalidURL
+//                    case .unableToComplete:
+//                        self.alertItem = AlertContext.unableToComplete
+//                    }
+//                }
+//            }
+//
+//
+//        }
+//    }
     
 }
